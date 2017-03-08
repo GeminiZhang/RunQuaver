@@ -30,4 +30,8 @@ public class Quaver {
 		}
 		image = images[0]; // set current frame(image)
 	}
+	
+	public void move(){
+		
+	}
 }
