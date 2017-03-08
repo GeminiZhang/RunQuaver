@@ -3,7 +3,8 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class Quaver {
-	int x;	int y; 			// x, y coordinate, the center of Quaver
+	int x;	
+	int y; 			// x, y coordinate, the center of Quaver
 	double angle; 			// angle when flying 
 	BufferedImage[] images; // animation frames(images)
 	BufferedImage image; 	// current frame(image)
