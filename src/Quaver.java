@@ -39,4 +39,9 @@ public class Quaver {
 		y = y - (int)s; // calculate y coordinate 
 		angle = -Math.atan(s/8); // calculate the flying angle
 	}
+	// switch to the next frame(image)
+		public void animate(){
+			index++;
+			image = images[(index/8)%images.length];
+		}
 }
