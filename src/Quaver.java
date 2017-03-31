@@ -15,14 +15,14 @@ public class Quaver {
 	double velocity;		// current velocity
 	double s;    			// distance
 	int size = 40;			// width/height of Quaver, center is (x,y)
-	
+
 	public Quaver() throws Exception {
 		g = 4; 	  // acceleration of gravity
 		t = 0.25; // unit time
 		v0 = 20;  // initial velocity
 		x = 132;  // initial x coordinate
 		y = 275;  // initial y coordinate
-		
+
 		// load animation frames(images)
 		images = new BufferedImage[8]; 
 		for(int i=0; i<8; i++){
@@ -30,7 +30,7 @@ public class Quaver {
 		}
 		image = images[0]; // set current frame(image)
 	}
-	
+
 	public void move(){
 		double v0 = velocity; // get current velocity
 		double v = v0 - g*t;  // calculate v after t unit time
@@ -39,9 +39,14 @@ public class Quaver {
 		y = y - (int)s; // calculate y coordinate 
 		angle = -Math.atan(s/8); // calculate the flying angle
 	}
+
 	// switch to the next frame(image)
-		public void animate(){
-			index++;
-			image = images[(index/8)%images.length];
-		}
+	public void animate(){
+		index++;
+		image = images[(index/8)%images.length];
+	}
+
+	public void jump(){
+		velocity = v0; // reset current velocity to initial velocity
+	}
 }
