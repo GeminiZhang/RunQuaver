@@ -32,6 +32,11 @@ public class Quaver {
 	}
 	
 	public void move(){
-		
+		double v0 = velocity; // get current velocity
+		double v = v0 - g*t;  // calculate v after t unit time
+		velocity = v; 		  // set current velocity to v
+		s = v0*t - 0.5 * g * t * t; // calculate the vertical displacement
+		y = y - (int)s; // calculate y coordinate 
+		angle = -Math.atan(s/8); // calculate the flying angle
 	}
 }
