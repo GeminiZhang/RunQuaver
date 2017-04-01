@@ -17,7 +17,7 @@ public class Quaver {
 	int size = 40;			// width/height of Quaver, center is (x,y)
 
 	public Quaver() throws Exception {
-		g = 4; 	  // acceleration of gravity
+		g = 3; 	  // acceleration of gravity
 		t = 0.25; // unit time
 		v0 = 20;  // initial velocity
 		x = 132;  // initial x coordinate
