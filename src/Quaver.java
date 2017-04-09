@@ -26,7 +26,7 @@ public class Quaver {
 		// load animation frames(images)
 		images = new BufferedImage[8]; 
 		for(int i=0; i<8; i++){
-			images[i] = ImageIO.read(getClass().getResource(i+".png"));
+			images[i] = ImageIO.read(getClass().getResource("sprite_"+i+".png"));
 		}
 		image = images[0]; // set current frame(image)
 	}
