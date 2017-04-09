@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -22,4 +23,8 @@ public class Ground {
 				x=0;
 			}
 		}
-}
+		// paint the ground
+		public void paint(Graphics g) {
+			g.drawImage(image, x, y, null);		
+		}
+	}
