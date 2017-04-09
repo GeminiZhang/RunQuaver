@@ -10,9 +10,16 @@ public class Ground {
 	int height;
 	public Ground() throws IOException {
 		y = 500;
-		image = ImageIO.read(getClass().getResource("image0.png"));
+		image = ImageIO.read(getClass().getResource("ground.png"));
 		width = image.getWidth();
 		height = image.getHeight();
 		x = 0;
 	}
+	// move the ground to the left
+		public void move(){
+			x-=5;
+			if(x<=-(111)){ // when it goes to the end, start over 
+				x=0;
+			}
+		}
 }
