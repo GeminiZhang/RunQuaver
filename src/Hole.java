@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class Hole {
 	BufferedImage image;
-	int x; int y; // (x,y) is the center of the hole
+	int x; int y; // (x,y) is the left top center
 	int width; 
-	int depth;
+	int distance;//the distance between two holes
+	boolean passed;
 	Random r = new Random();
-	int distance = 245;//the distance between two holes
 }
