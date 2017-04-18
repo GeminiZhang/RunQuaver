@@ -1,8 +1,10 @@
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class Quaver {
+public class Bunny {
 	int x;	
 	int y; 			// x, y coordinate, the center of Quaver
 	double angle; 			// angle when flying 
@@ -14,9 +16,9 @@ public class Quaver {
 	final double v0;		// initial velocity 
 	double velocity;		// current velocity
 	double s;    			// distance
-	int size = 40;			// width/height of Quaver, center is (x,y)
+	int size = 40;			// width/height of Bunny, center is (x,y)
 
-	public Quaver() throws Exception {
+	public Bunny() throws Exception {
 		g = 3; 	  // acceleration of gravity
 		t = 0.25; // unit time
 		v0 = 20;  // initial velocity
@@ -49,4 +51,27 @@ public class Quaver {
 	public void jump(){
 		velocity = v0; // reset current velocity to initial velocity
 	}
+	// check if it drops into the hole
+	public boolean hit(Hole hole){
+		if(x>hole.x+size/2 && x<hole.x+hole.width && y==480){
+			return true;
+		}
+			return false;
+		}
+	public boolean pass(Hole hole){
+		if(!hole.passed&&hole.x+hole.width<x){
+			hole.passed=true;
+			return true;
+		}
+		return false;
+	}
+	// draw the image
+		public synchronized void draw(Graphics g){
+			Graphics2D g2=(Graphics2D)g;
+			g2.rotate(angle,x,y); // rotate 
+			int a=this.x-image.getWidth()/2;
+			int b=this.y-image.getHeight()/2;
+			g.drawImage(image,a,b,null);
+			g2.rotate(-angle,x,y);// rotate back
+		}
 }
