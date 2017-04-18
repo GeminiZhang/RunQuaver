@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -6,6 +9,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.TargetDataLine;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class World extends JPanel{
@@ -118,7 +122,24 @@ public class World extends JPanel{
 			}
 		}
 	}
-	public static void main(String[] args){
-		
+	public void paint(Graphics g) {
+		g.drawImage(background, 0, 0, null);
+		ground.paint(g);
+		hole1.draw(g);
+		hole2.draw(g); 
+
+		//draw score
+		Font font = new Font(Font.MONOSPACED, Font.BOLD, 45);
+		g.setFont(font);
+		g.setColor(Color.white);
+		g.drawString(score+"",196,50);
+
+		bunny.draw(g);
+
+		if(isGameOver){
+			g.drawImage(gameOver,0,0,null);
+		}else if(!isGameStarted){
+			g.drawImage(start,0,0,null);
+		}
 	}
 }
