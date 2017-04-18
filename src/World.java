@@ -142,4 +142,14 @@ public class World extends JPanel{
 			g.drawImage(start,0,0,null);
 		}
 	}
+	public static void main(String[] args) throws Exception {
+		JFrame frame = new JFrame("Scream!Bunny!");
+		World world = new World();
+		frame.add(world);
+		frame.setSize(440, 674);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		world.run();
+	}
 }
