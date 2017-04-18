@@ -19,11 +19,11 @@ public class Bunny {
 	int size = 40;			// width/height of Bunny, center is (x,y)
 
 	public Bunny() throws Exception {
-		g = 3; 	  // acceleration of gravity
+		g = 5; 	  // acceleration of gravity
 		t = 0.25; // unit time
 		v0 = 20;  // initial velocity
-		x = 132;  // initial x coordinate
-		y = 275;  // initial y coordinate
+		x = 120;  // initial x coordinate
+		y = 480;  // initial y coordinate
 
 		// load animation frames(images)
 		images = new BufferedImage[8]; 
@@ -32,7 +32,11 @@ public class Bunny {
 		}
 		image = images[0]; // set current frame(image)
 	}
-
+	/*
+	 * calculate vertical displacement(s)for each move
+	 * v=v0-gt
+	 * s=v0*t-1/2gt^2
+	 */
 	public void move(){
 		double v0 = velocity; // get current velocity
 		double v = v0 - g*t;  // calculate v after t unit time
@@ -40,6 +44,11 @@ public class Bunny {
 		s = v0*t - 0.5 * g * t * t; // calculate the vertical displacement
 		y = y - (int)s; // calculate y coordinate 
 		angle = -Math.atan(s/8); // calculate the flying angle
+		if(y>=480){
+			y=480;
+			v=0;
+			angle = 0;
+		}
 	}
 
 	// switch to the next frame(image)

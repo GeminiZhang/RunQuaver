@@ -120,6 +120,20 @@ public class World extends JPanel{
 					}
 				}
 			}
+			// check if it passes the hole
+			if(bunny.pass(hole1)||bunny.pass(hole2)){
+				score++;
+			}
+			// check if it drops into the hole
+			if(bunny.hit(hole1)||bunny.hit(hole2)){
+				isGameStarted=false;
+				isGameOver=true;
+			}
+			if(!isGameOver){
+				bunny.animate();
+			}
+			repaint();
+			Thread.sleep(1000/60); //60fps
 		}
 	}
 	public void paint(Graphics g) {
